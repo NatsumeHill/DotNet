@@ -1,10 +1,17 @@
+/**
+ * @author 谢方奎
+ * @email xiefangkui@outlook.com
+ * @create date 2017-12-27 02:31:15
+ * @modify date 2017-12-27 02:31:15
+ * @desc Sort class implemention
+*/
 using System;
 using System.Collections.Generic;
 namespace class_3
 {
 	public class Sort
 	{
-		public static void dosort(List<Person> src)
+		public static void selectsort(List<IComparable> src)
 		{
 			int step;
 			for (step = 0; step < src.Count; step++)
@@ -17,8 +24,14 @@ namespace class_3
 						j = i;
 				/* If the minimu one is not first one, swap */
 				if (step != j)
-					Person.Swap(src[step], src[j]);
+					swap(src, step, j);
 			}
+		}
+		public static void swap<T>(List<T> src, int i, int j)
+		{
+			T tmp = src[i];
+			src[i] = src[j];
+			src[j] = tmp;
 		}
 	}
 }
